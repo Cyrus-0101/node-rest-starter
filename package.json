@@ -1,0 +1,27 @@
+{
+  "name": "digi-sticki-notes",
+  "version": "1.0.0",
+  "description": "Digital Sticky Notes",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Cyrus-0101/node-rest-starter.git"
+  },
+  "author": "Cyrus G.",
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "date-fns": "^2.29.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "mongoose": "^6.8.1",
+    "uuid": "^9.0.0"
+  }
+}
