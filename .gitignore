@@ -3,6 +3,7 @@ package-lock.json
 coverage/
 logs/
 UserStories.md
+.env
 
 
 
