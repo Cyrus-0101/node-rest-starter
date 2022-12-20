@@ -7,7 +7,7 @@ import path from "path";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 export const logEvents = async (message, logFileName) => {
-  const dateTime = `${format(new Date(), "yyyy-MM-dd/tHH:mm:ss")}`;
+  const dateTime = `${format(new Date(), "yyyy-MM-dd HH:mm:ss")}`;
   const logItem = `${dateTime}\t${v4()}\t${message}\n`;
 
   try {
@@ -30,8 +30,10 @@ export const logger = (req, res, next) => {
     "reqLog.log"
   );
 
+  const dateTime = `${format(new Date(), "yyyy-MM-dd HH:mm:ss")}`;
+
   console.log(
-    `${req.method}\t${req.protocol}://${req.ip}${req.originalUrl}\t${req.headers.host}\t${req.res.statusCode}`
+    `${dateTime}\t${req.method}\t${req.protocol}://${req.ip}${req.originalUrl}\t${req.headers.host}\t${req.res.statusCode}`
   );
 
   next();
