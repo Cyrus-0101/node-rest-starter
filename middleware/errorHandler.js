@@ -2,7 +2,7 @@ import { logEvents } from "./logger.js";
 
 const errorHandler = (err, req, res, next) => {
   logEvents(
-    `${err.name}: ${err.message}\t${req.method}\t${req.url}\t${req.headers.origin}\n`,
+    `${err.name}: ${err.message}\t${req.method}\t${req.protocol}://${req.ip}${req.originalUrl}\t${req.headers.origin}\n`,
     "errorLog.log"
   );
 
