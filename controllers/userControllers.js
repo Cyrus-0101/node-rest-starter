@@ -10,7 +10,7 @@ import Note from "../models/Note.js";
 export const getUsers = asyncHandler(async (req, res) => {
   const users = await User.find({});
 
-  if (users.length === 0) {
+  if (users?.length === 0) {
     return res.status(404).json({ message: "No users found" });
   }
 
@@ -47,7 +47,6 @@ export const createUser = asyncHandler(async (req, res) => {
 
   if (duplicateUser) {
     res.status(400).json({ message: "Username already exists" });
-    throw new Error("Username already exists");
   }
 
   // Hash Password
@@ -65,7 +64,6 @@ export const createUser = asyncHandler(async (req, res) => {
     return res.status(201).json({ message: `New User, ${username} created.` });
   } else {
     res.status(400).json({ message: "Invalid user data" });
-    throw new Error("Invalid user data");
   }
 });
 
@@ -123,9 +121,9 @@ export const deleteUser = asyncHandler(async (req, res) => {
     res.status(400).json({ message: "All fields are required" });
   }
 
-  const notes = await Note.findOne({ user: id }).lean().exec();
+  const note = await Note.findOne({ user: id }).lean().exec();
 
-  if (notes) {
+  if (note) {
     return res
       .status(400)
       .json({ message: "User has notes and cannot be deleted." });
