@@ -13,6 +13,7 @@ import dbConn from "./config/dbConn.js";
 import mongoose from "mongoose";
 
 import userRoutes from "./routes/userRoutes.js";
+import noteRoutes from "./routes/noteRoutes.js";
 
 dotenv.config();
 
@@ -47,6 +48,7 @@ app.get("/api/status", (req, res) => {
 });
 
 app.use("/api/users", userRoutes);
+app.use("/api/notes", noteRoutes);
 
 app.all("*", (req, res) => {
   res.status(404);
