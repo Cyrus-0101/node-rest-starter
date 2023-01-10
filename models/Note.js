@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import AutoInc from "mongoose-sequence";
-import dbConn from "../config/dbConn.js";
 
 const noteSchema = new mongoose.Schema(
   {
